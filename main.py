@@ -16,6 +16,8 @@ def parse_args():
     parser.add_argument("input_path", type=str, help="Путь к входному изображению.")
     parser.add_argument("--clear", action="store_true", help="Очистить холст перед рисованием.")
     parser.add_argument("--debug", action="store_true", help="Включить режим отладки с OpenCV.")
+    parser.add_argument("--monitor", type=int, default=None,
+                        help="Номер монитора для захвата (0 - все экраны, 1+ - конкретный).")
     return parser.parse_args()
 
 
