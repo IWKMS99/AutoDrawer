@@ -3,6 +3,7 @@ import sys
 
 from utils.logger import setup_logger
 from core.auto_drawer import AutoDrawer
+from utils.config_loader import ConfigLoader
 
 
 def parse_args():
@@ -28,8 +29,11 @@ def main():
     # Настройка логирования
     setup_logger(debug=args.debug)
 
+    # Инициализация конфигурации
+    config_loader = ConfigLoader()
+
     # Инициализация и запуск AutoDrawer
-    drawer = AutoDrawer(debug=args.debug)
+    drawer = AutoDrawer(debug=args.debug, monitor_idx=args.monitor, config_loader=config_loader)
     drawer.run(args.input_path, args.clear)
 
 

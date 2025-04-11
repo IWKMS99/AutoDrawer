@@ -16,12 +16,13 @@ from utils.debug_tools import DebugTools
 
 
 class AutoDrawer:
-    def __init__(self, debug: bool = False, monitor_idx: Optional[int] = None):
+    def __init__(self, debug: bool = False, monitor_idx: Optional[int] = None,
+                 config_loader: Optional[ConfigLoader] = None):
         self.logger = logging.getLogger(__name__)
         self.logger.info("Инициализация AutoDrawer...")
 
         self.debug = debug
-        self.config = ConfigLoader()
+        self.config = config_loader or ConfigLoader()
         self.state = StateManager()
 
         # Инициализация с учетом монитора
@@ -29,7 +30,7 @@ class AutoDrawer:
         if monitor_idx is not None:
             if not self.capturer.set_monitor(monitor_idx):
                 self.logger.error("Неверный индекс монитора. Используется монитор по умолчанию (0).")
-        self.canvas_detector = CanvasDetector(self.capturer, debug)
+        self.canvas_detector = CanvasDetector(self.capturer, debug, config_loader=self.config)
         self.palette_analyzer = PaletteAnalyzer(self.capturer, debug)
 
         self.image_processor = ImageProcessor(debug)
@@ -54,7 +55,7 @@ class AutoDrawer:
         self.logger.info("--- Начало настройки AutoDrawer ---")
         try:
             # Выбор монитора, если не задан
-            if self.capturer.selected_monitor is None:
+            if self.capturer.selected_monitor_idx is None:
                 print("\nДоступные мониторы:")
                 for i, mon in enumerate(self.capturer.monitors):
                     print(f"{i}: {mon['width']}x{mon['height']} @ ({mon['left']}, {mon['top']})")

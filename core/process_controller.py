@@ -346,6 +346,7 @@ class ProcessController:
         palette_img = self.palette_analyzer.capture_palette()
         if palette_img is None:
             self.logger.error("Не удалось захватить палитру.")
+            self.state.stop()  # Останавливаем программу при ошибке
             return
 
         # Извлечение цветов палитры
