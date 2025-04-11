@@ -1,0 +1,11 @@
+mss
+numpy
+pyautogui
+Pillow
+pynput
+scipy
+scikit-learn
+tqdm
+opencv-python
+scikit-image
+pyyaml

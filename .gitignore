@@ -1,0 +1,86 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+dist/
+build/
+wheels/
+sdist/
+venv/
+.venv/
+env/
+*.whl
+*.egg
+MANIFEST
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+lib/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.whl
+pip-log.txt
+pip-delete-this.txt
+.tox/
+.pytest_cache/
+htmlcov/
+*.mo
+*.pot
+
+# OS-specific ignores (optional, but recommended)
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# IDE-specific ignores (optional)
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# Log files
+*.log
+
+# Jupyter Notebook related (optional)
+.ipynb_checkpoints/
+
+# MyPy cache (optional)
+.mypy_cache/
+
+# Other temporary files
+*.orig
+*.rej
+
+# Documentation specific (if using Sphinx)
+_build/
+
